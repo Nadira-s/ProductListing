@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		534D0EFA2F65898C0037A886 /* ProductListing */ = {
+		534D0F1D2F658A310037A886 /* ProductListing */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ProductListing;
 			sourceTree = "<group>";
@@ -32,7 +32,7 @@
 		534D0EEF2F65898C0037A886 = {
 			isa = PBXGroup;
 			children = (
-				534D0EFA2F65898C0037A886 /* ProductListing */,
+				534D0F1D2F658A310037A886 /* ProductListing */,
 				534D0EF92F65898C0037A886 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +61,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				534D0EFA2F65898C0037A886 /* ProductListing */,
+				534D0F1D2F658A310037A886 /* ProductListing */,
 			);
 			name = ProductListing;
 			packageProductDependencies = (
