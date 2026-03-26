@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct ProductListingApp: App {
+    @StateObject private var sessionManager = AppSessionManager()
+    @StateObject private var favoritesManager = FavoritesManager()
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            SessionView()
+                .environmentObject(sessionManager)
+                .environmentObject(favoritesManager)
         }
     }
 }

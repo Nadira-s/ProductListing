@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Product: Identifiable, Codable {
+struct Product: Identifiable, Codable, Hashable{
+    
     let id: Int
     let title: String
     let price: Double
@@ -21,7 +22,7 @@ struct Product: Identifiable, Codable {
     }
 }
 
-struct Rating: Codable{
+struct Rating: Codable, Hashable{
     let rate: Double
     let count: Int
 }

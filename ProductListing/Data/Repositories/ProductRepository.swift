@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol ProductRepositoryProtocol {
-    func fetchAllProduct() -> AnyPublisher<[Product], Error>
+    func fetchAllProduct(limit: Int) -> AnyPublisher<[Product], Error>
 }
 
 final class ProductRepository: ProductRepositoryProtocol {
@@ -19,7 +19,7 @@ final class ProductRepository: ProductRepositoryProtocol {
         self.networkService = networkService
     }
     
-    func fetchAllProduct() -> AnyPublisher<[Product], any Error> {
-        return networkService.request(endpoint: APIRouter.getProducts)
+    func fetchAllProduct(limit: Int) -> AnyPublisher<[Product], Error> {
+        return networkService.request(endpoint: APIRouter.getProducts(limit: limit))
     }
 }

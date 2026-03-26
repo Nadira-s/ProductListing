@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 enum APIRouter: URLRequestConvertible {
-    case getProducts
+    case getProducts(limit: Int)
     case getProductDetails(id: Int)
     case getCategories
     
@@ -19,10 +19,10 @@ enum APIRouter: URLRequestConvertible {
     
     private var path: String {
         switch self {
-        case .getProducts:
-            return "/products"
+        case .getProducts(let limit):
+            return "/products?limit=\(limit)"
         case .getProductDetails(let id):
-            return "/product/\(id)"
+            return "/products/\(id)"
         case .getCategories:
             return "/products/categories"
         }
@@ -33,8 +33,14 @@ enum APIRouter: URLRequestConvertible {
     }
     
     func asURLRequest() throws -> URLRequest {
-        let url = try baseURl.asURL()
-        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+        
+        let urlString = baseURl + path
+        
+        guard let url = URL(string: urlString) else {
+            throw AFError.parameterEncodingFailed(reason: .missingURL)
+        }
+        
+        var urlRequest = URLRequest(url: url)
         
         urlRequest.httpMethod = method.rawValue
         
