@@ -27,7 +27,7 @@ The app focuses on scalability, separation of concerns, reusable networking, and
 
 <p float="left"> 
 <img src="Screenshots/splash.png" width="200" /> 
-<img src="Screenshots/home1.png" width="200" /> 
+<img src="Screenshots/home.png" width="200" /> 
 <img src="Screenshots/productDetail.png" width="200" /> 
 <img src="Screenshots/favorites.png" width="200" /> 
 </p>
