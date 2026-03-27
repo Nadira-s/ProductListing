@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ProductDetailView: View {
-    
+    let product: Product
     let productId: Int
     @StateObject private var viewModel = ProductDetailViewModel()
+    @EnvironmentObject var favoritesManager: FavoritesManager
     
     var body: some View {
         ScrollView{
@@ -52,6 +53,16 @@ struct ProductDetailView: View {
         }
         .navigationTitle("Details")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing ) {
+                Button {
+                    favoritesManager.toggle(product)
+                } label: {
+                    Image(systemName: favoritesManager.contains(product) ? "heart.fill" : "heart")
+                        .foregroundColor(.red)
+                }
+            }
+        }
         .onAppear {
             viewModel.fetchProductDetails(id: productId)
         }

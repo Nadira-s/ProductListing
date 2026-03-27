@@ -37,7 +37,7 @@ struct HomeView: View {
                     
                     .listStyle(.plain)
                     .navigationDestination(for: Product.self) { product in
-                        ProductDetailView(productId: product.id)
+                        ProductDetailView(product: product, productId: product.id)
                     }
                 }
             }
