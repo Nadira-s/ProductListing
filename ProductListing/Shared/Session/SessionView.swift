@@ -14,7 +14,9 @@ struct SessionView: View {
         case .splash:
             SplashView()
         case .home:
-            HomeView()
+            NavigationStack {
+                HomeView()
+            }
         }
     }
 }

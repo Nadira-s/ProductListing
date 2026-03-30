@@ -12,7 +12,6 @@ struct FavoritesView: View {
     @StateObject var homeViewModel = HomeViewModel()
     
     var body: some View {
-        NavigationStack{
             List{
                 let favoriteProducts = homeViewModel.products.filter {
                     favoritesManager.favoriteIDs.contains($0.id)
@@ -27,12 +26,11 @@ struct FavoritesView: View {
                     }
                 }
             }
-            .navigationTitle("Favotites")
+            .navigationTitle("Favorites")
             .onAppear{
                 if homeViewModel.products.isEmpty {
                     homeViewModel.fetchProducts()
                 }
             }
-        }
     }
 }

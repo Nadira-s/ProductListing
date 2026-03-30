@@ -11,7 +11,6 @@ struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     
     var body: some View{
-        NavigationStack {
             ZStack {
                 if viewModel.isLoading {
                     ProgressView("Loading...")
@@ -70,10 +69,6 @@ struct HomeView: View {
                     }
                 }
             }
-           
-           
-            
-        }
         .onAppear {
             viewModel.fetchProducts()
             }
